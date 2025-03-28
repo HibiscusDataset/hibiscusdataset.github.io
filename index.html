@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hibiscus Dataset</title>
+    <!-- Make sure Tailwind is included -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+    <script src="script.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    Remove above if using standard Tailwind build process
+    --> 
+    <script>
+      // Optional: Configuration for custom colors if needed with CDN
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "hibiscus-primary": "#d84040",
+              "hibiscus-secondary": "#fffff5",
+              "hibiscus-background": "#f3efef",
+              "hibiscus-text": "#333",
+              "hibiscus-heading": "#000",
+              "hibiscus-border": "#f86b5d",
+              "hibiscus-hover": "#e62a4a",
+              "hibiscus-footer-bg": "#111",
+              "hibiscus-footer-text": "#aaa",
+              "hibiscus-footer-link": "#ddd",
+              "hibiscus-footer-link-hover": "#ff3b5c",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Link to external CSS - REMOVED -->
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+  </head>
+  <body class="bg-hibiscus-background font-sans text-hibiscus-text">
+    <header
+      class="bg-white px-4 sm:px-10 py-2 shadow-sm border-b border-hibiscus-border h-[80px] md:h-[100px]"
+    >
+      <nav
+        class="w-full h-full flex items-center justify-between max-w-screen-xl mx-auto"
+      >
+        <!-- Logo - Adjusted flex properties for responsiveness -->
+        <div class="flex-shrink-0">
+          <img
+            src="images/hibiscus_logo.png"
+            alt="Hibiscus Logo"
+            class="h-32 w-auto"
+          />
+        </div>
+
+        <!-- Desktop Nav Links -->
+        <ul class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+          <li>
+            <a
+              href="#about"
+              class="text-hibiscus-heading font-bold text-lg hover:text-hibiscus-primary transition-colors"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-hibiscus-heading font-bold text-lg hover:text-hibiscus-primary transition-colors"
+              >Contact</a
+            >
+          </li>
+        </ul>
+
+        <!-- Desktop Download Button -->
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSekaEC6zLLXQgOjABSrN6bP_qrA01BzBDHGGfncCSXY2BWJ0Q/viewform?usp=dialog"
+          class="hidden md:inline-block bg-hibiscus-primary text-white px-5 py-2.5 rounded-full font-bold transition duration-300 ease-in-out hover:bg-hibiscus-hover text-sm lg:text-base"
+          >Request Dataset</a
+        >
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button
+            id="mobile-menu-button"
+            class="text-hibiscus-heading focus:outline-none"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu (Initially Hidden) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-[80px] left-0 w-full bg-white shadow-lg z-50"
+      >
+        <ul class="flex flex-col items-center space-y-4 py-4">
+          <li>
+            <a
+              href="#about"
+              class="text-hibiscus-heading font-bold text-lg hover:text-hibiscus-primary transition-colors"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-hibiscus-heading font-bold text-lg hover:text-hibiscus-primary transition-colors"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSekaEC6zLLXQgOjABSrN6bP_qrA01BzBDHGGfncCSXY2BWJ0Q/viewform?usp=dialog"
+              class="bg-hibiscus-primary text-white px-5 py-2.5 rounded-full font-bold transition duration-300 ease-in-out hover:bg-hibiscus-hover text-sm"
+              >Request Dataset</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <div
+        id="hero"
+        class="flex flex-col md:flex-row items-center justify-center text-center md:text-left py-12 md:py-20 px-6 lg:px-[10%] bg-hibiscus-secondary"
+      >
+        <div
+          class="hero-image order-1 md:order-1 mb-8 md:mb-0 md:mr-8 lg:mr-12 flex-shrink-0"
+        >
+          <img
+            src="images/Untitled design (9).png"
+            alt="Hibiscus Flower Samples"
+            class="max-w-[300px] sm:max-w-[400px] lg:max-w-[450px] h-auto rounded-lg shadow-lg"
+          />
+        </div>
+        <div class="hero-content order-2 md:order-2 max-w-lg">
+          <h1
+            class="text-3xl sm:text-4xl lg:text-5xl font-bold text-hibiscus-heading mb-1"
+          >
+            HIBISCUS
+          </h1>
+          <h2
+            class="text-3xl sm:text-4xl lg:text-5xl text-hibiscus-primary font-bold mb-4"
+          >
+            <span class="highlight" id="changingText">ROSA SENIS</span>
+          </h2>
+          <p class="text-lg lg:text-xl text-hibiscus-text italic mb-6">
+            Unlock the Power of Hibiscus: A Dataset for Scientific & AI Research
+          </p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSekaEC6zLLXQgOjABSrN6bP_qrA01BzBDHGGfncCSXY2BWJ0Q/viewform?usp=dialog"
+            id="download-hero-btn"
+            class="inline-block bg-hibiscus-primary text-white px-6 py-3 rounded-full font-bold transition duration-300 ease-in-out hover:bg-hibiscus-hover"
+            >Request Dataset</a
+          >
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div
+        id="about"
+        class="text-center py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-hibiscus-secondary my-8 md:my-12 shadow-md"
+      >
+        <h2
+          class="text-2xl sm:text-3xl lg:text-4xl text-hibiscus-primary mb-6 sm:mb-8 font-bold text-left border-l-4 border-hibiscus-primary pl-4"
+        >
+          ABOUT THE DATASET
+        </h2>
+        <p class="text-left mb-8 md:mb-12 text-base md:text-lg leading-relaxed">
+          <span class="float-left text-3xl mr-1 font-serif">T</span>his dataset
+          is a comprehensive collection of 5100 samples of Hibiscus flowers,
+          covering three main species:
+        </p>
+
+        <div
+          class="species-container flex justify-center sm:justify-around items-center gap-8 sm:gap-4 lg:gap-10 mt-8 md:mt-12"
+        >
+          <div
+            class="flex flex-col items-center text-center rounded-full bg-[#00000000]"
+          >
+            <img
+              src="images/about_image_3.png"
+              alt="Rosa - Senis"
+              class="object-contain rounded-xl border-4 border-white transition-transform duration-300 hover:scale-105 mb-2 h-36 md:h-40 w-auto"
+            />
+            <h3 class="font-semibold text-gray-500 mt-2 text-md">
+              Class 1
+            </h3>
+            <h3 class="font-semibold text-hibiscus-primary mt-2 text-md">
+              Rosa - Senis
+            </h3>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="images/about_image_2.png"
+              alt="Canabinus"
+              class="object-contain rounded-xl border-4 border-white transition-transform duration-300 hover:scale-105 mb-2 h-36 md:h-40 w-auto"
+            />
+            <h3 class="font-semibold text-gray-500 mt-2 text-md">
+              Class 2
+            </h3>
+            <h3 class="font-semibold text-hibiscus-primary mt-2 text-md">
+              Canabinus
+            </h3>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <img
+              src="images/about_image_1.png"
+              alt="Mutabilis"
+              class="object-contain rounded-xl border-4 border-white transition-transform duration-300 hover:scale-105 mb-2 h-36 md:h-40 w-auto"
+            />
+            <h3 class="font-semibold text-gray-500 mt-2 text-md">
+              Class 3
+            </h3>
+            <h3 class="font-semibold text-hibiscus-primary mt-2 text-md">
+              Mutabilis
+            </h3>
+          </div>
+        </div>
+
+        <div class="morphology-section mt-12 md:mt-16 text-center">
+          <p
+            class="text-left mb-8 md:mb-12 text-base md:text-lg leading-relaxed"
+          >
+            <span class="float-left text-3xl mr-1 font-serif">E</span>ach sample
+            includes detailed
+            <span class="text-hibiscus-primary font-semibold"
+              >Morphological features</span
+            >
+            such as:
+          </p>
+          <div
+            class="morphology-container flex justify-center sm:justify-around items-center gap-8 lg:gap-16 mt-8 md:mt-10"
+          >
+            <div class="morph-feature text-center flex flex-col items-center">
+              <img
+                src="images/petal_length.png"
+                alt="Petal Length"
+                class="h-36 md:h-40 w-auto mb-2 object-contain"
+              />
+              <h4 class="font-semibold text-lg text-hibiscus-text">
+                Petal Length
+              </h4>
+            </div>
+            <div class="morph-feature text-center flex flex-col items-center">
+              <img
+                src="images/color.png"
+                alt="Color"
+                class="h-36 md:h-40 w-auto mb-2 object-contain"
+              />
+              <h4 class="font-semibold text-lg text-hibiscus-text">Color</h4>
+            </div>
+            <div class="morph-feature text-center flex flex-col items-center">
+              <img
+                src="images/sepal_length.png"
+                alt="Sepal Length"
+                class="h-36 md:h-40 w-auto mb-2 object-contain"
+              />
+              <h4 class="font-semibold text-lg text-hibiscus-text">
+                Sepal Length
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div
+        id="features"
+        class="text-center py-8 md:py-10 px-5 bg-hibiscus-primary text-white rounded-[40px] my-8 md:my-12 mx-4 md:mx-8 lg:mx-16 shadow-lg"
+      >
+        <div
+          class="features-container flex justify-around items-center md:gap-4"
+        >
+          <div class="feature-box text-center w-full md:w-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-1">3</h1>
+            <p class="text-lg sm:text-xl font-bold">Classes</p>
+          </div>
+          <div class="feature-box text-center w-full md:w-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-1">1700</h1>
+            <p class="text-lg sm:text-xl font-bold">
+              Samples <br /><span class="subtext text-sm font-normal"
+                >per class</span
+              >
+            </p>
+          </div>
+          <div class="feature-box text-center w-full md:w-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-1">3</h1>
+            <p class="text-lg sm:text-xl font-bold">
+              Features <br /><span class="subtext text-sm font-normal"
+                >per class</span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Importance Section -->
+      <div
+        id="importance"
+        class="bg-hibiscus-secondary py-12 md:py-16 px-4 sm:px-6 lg:px-8 text-left my-8 md:my-12 mx-4 md:mx-8 lg:mx-16 rounded-lg shadow-md"
+      >
+        <h2
+          class="text-2xl sm:text-3xl lg:text-4xl text-hibiscus-primary mb-6 sm:mb-8 font-bold border-l-4 border-hibiscus-primary pl-4"
+        >
+          IMPORTANCE OF THE DATASET
+        </h2>
+
+        <div class="space-y-8 md:space-y-10">
+          <div>
+            <h3
+              class="text-xl lg:text-2xl text-hibiscus-heading font-bold mb-3"
+            >
+              Advances AI & Machine Learning Research
+            </h3>
+            <ul
+              class="list-disc list-outside ml-5 space-y-2 text-base md:text-lg"
+            >
+              <li>
+                Helps in training deep learning models for flower species
+                classification and recognition.
+              </li>
+              <li>
+                Supports computer vision applications in plant identification
+                and conservation.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              class="text-xl lg:text-2xl text-hibiscus-heading font-bold mb-3"
+            >
+              Supports Botanical & Ecological Studies
+            </h3>
+            <ul
+              class="list-disc list-outside ml-5 space-y-2 text-base md:text-lg"
+            >
+              <li>
+                Enables researchers to study morphological variations across
+                species.
+              </li>
+              <li>
+                Helps in tracking plant diversity and understanding
+                environmental influences on growth.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              class="text-xl lg:text-2xl text-hibiscus-heading font-bold mb-3"
+            >
+              Applications in Agriculture & Horticulture
+            </h3>
+            <ul
+              class="list-disc list-outside ml-5 space-y-2 text-base md:text-lg"
+            >
+              <li>
+                Assists in breeding and cultivation research for better plant
+                varieties.
+              </li>
+              <li>
+                Useful for early disease detection by comparing plant
+                characteristics.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              class="text-xl lg:text-2xl text-hibiscus-heading font-bold mb-3"
+            >
+              Promotes Open-Source Contribution
+            </h3>
+            <ul
+              class="list-disc list-outside ml-5 space-y-2 text-base md:text-lg"
+            >
+              <li>
+                Encourages collaboration in scientific communities and
+                data-driven discoveries.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer About Section (Matches image) -->
+
+      <div
+        id="credits"
+        class="bg-black text-white py-6 md:py-8 px-6 sm:px-10 lg:px-12 my-8 md:my-12 mx-4 md:mx-8 lg:mx-16 rounded-lg shadow-md flex justify-between items-center space-x-6 md:space-x-10"
+      >
+        <h2
+          class="text-xl sm:text-2xl font-bold text-hibiscus-primary flex-shrink-0 pr-4 md:pr-6"
+        >
+          CREDITS
+        </h2>
+
+        <div
+          class="flex items-center justify-start flex-grow space-x-4 sm:space-x-6 md:space-x-8"
+        >
+          <div class="flex flex-col space-y-1 text-sm sm:text-base">
+            <span>Ayaan shaikh</span>
+            <span>Dhruvi patel</span>
+          </div>
+
+          <div class="h-10 sm:h-12 w-px bg-hibiscus-primary"></div>
+
+          <div class="flex flex-col space-y-1 text-sm sm:text-base">
+            <span>Sharavanpuri goswami</span>
+            <span>Vansanth sunkara</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="bg-hibiscus-footer-bg text-hibiscus-footer-text py-10 px-4 sm:px-10 lg:px-16"
+    >
+      <div
+        class="footer-container max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8 md:gap-12"
+      >
+        <div class="footer-left w-full md:w-1/2 lg:w-2/5">
+          <h2 class="text-2xl font-bold text-white mb-2">Amtics</h2>
+          <img
+            src="images/hibiscus_logo.png"
+            alt="Hibiscus Logo Footer"
+            class="h-32 mb-3 brightness-0 invert w-auto"
+          />
+          <p class="text-base text-hibiscus-footer-text max-w-md">
+            A comprehensive dataset supporting scientific research and AI
+            applications in plant science.
+          </p>
+          <p class="text-base text-hibiscus-footer-text max-w-md">
+            Asha M. Tarsadia Institute of Computer Science and Technology
+          </p>
+        </div>
+        <div
+          class="footer-right w-full md:w-auto flex flex-col sm:flex-row gap-8 md:gap-16"
+        >
+          <div class="footer-section">
+            <h3
+              id="contact"
+              class="text-lg font-semibold mb-3 text-hibiscus-secondary"
+            >
+              Contact
+            </h3>
+            <p class="text-base flex items-center">
+              <span class="mr-2">✉️</span>
+              <a
+                href="mailto:hibiscusdataset.amtics@gmail.com"
+                class="email-link text-hibiscus-footer-link hover:text-hibiscus-footer-link-hover transition-colors"
+                >hibiscusdataset.amtics@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3 class="text-lg font-semibold mb-3 text-hibiscus-secondary">
+              Links
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-hibiscus-footer-link hover:text-hibiscus-footer-link-hover transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-hibiscus-footer-link hover:text-hibiscus-footer-link-hover transition-colors"
+                  >Dataset</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center mt-8 pt-6 border-t border-gray-700">
+        <p class="text-sm text-gray-500">
+          <a
+            href="#"
+            class="text-hibiscus-footer-text hover:text-hibiscus-footer-link-hover transition-colors mx-2"
+            >Legal</a
+          >
+          |
+          <a
+            href="#"
+            class="text-hibiscus-footer-text hover:text-hibiscus-footer-link-hover transition-colors mx-2"
+            >Privacy Policy</a
+          >
+        </p>
+        <p class="text-xs text-gray-600 mt-2">
+          © 2024 Hibiscus Dataset Project. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Basic Mobile Menu Toggle
+      const menuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
